@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="Miwok_background">#e5e5cc</color>
+    <color name="numbers_background">#59a189 </color>
+    <color name="colors_background">#215e74</color>
+    <color name="phrases_background">#23a33f</color>
+    <color name="family_background">#a32384</color>
+</resources>
