@@ -16,7 +16,6 @@ import java.util.List;
  */
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    MediaPlayer mediaPlayer;
 
     public WordAdapter( Context context, int resource,  List<Word> objects) {
         super(context, resource, objects);
@@ -25,18 +24,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
     @Override
     public View getView(int position,  View convertView,  ViewGroup parent) {
-        View itemlistView=convertView;
-        MediaPlayer mediaPlayer;
-        if(itemlistView==null){
-            itemlistView=LayoutInflater.from(getContext()).inflate(R.layout.word_list,parent,false);
+        View itemListView=convertView;
+        if(itemListView==null){
+            itemListView=LayoutInflater.from(getContext()).inflate(R.layout.word_list,parent,false);
         }
         Word currentWord=getItem(position);
 
-        TextView nameTextView = (TextView) itemlistView.findViewById(R.id.MiwokID);
+        TextView nameTextView = (TextView) itemListView.findViewById(R.id.MiwokID);
         nameTextView.setText(currentWord.getmMiwokTranslation());
-        TextView nameText = (TextView) itemlistView.findViewById(R.id.EnglishID);
+        TextView nameText = (TextView) itemListView.findViewById(R.id.EnglishID);
         nameText.setText(currentWord.getmEnglishTranslation());
-        ImageView image = (ImageView) itemlistView.findViewById(R.id.ImageViewID);
+        ImageView image = (ImageView) itemListView.findViewById(R.id.ImageViewID);
         image.setImageResource(currentWord.getmImageViewID());
         if(currentWord.isImagePresent) {
             image.setVisibility(View.VISIBLE);
@@ -44,6 +42,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         else if(!currentWord.isImagePresent){
             image.setVisibility(View.GONE);
         }
-        return itemlistView;
+        return itemListView;
     }
 }

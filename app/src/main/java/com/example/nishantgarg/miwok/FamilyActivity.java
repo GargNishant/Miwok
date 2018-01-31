@@ -18,15 +18,24 @@ public class FamilyActivity extends Activity {
         ListView ParentView=(ListView)findViewById(R.id.list);
 
         final ArrayList<Word> words=new ArrayList<Word>();
-        words.add(new Word("Miwok1","English1",R.mipmap.ic_launcher,R.raw.family_daughter));
-        words.add(new Word("Miwok2","English2",R.mipmap.ic_launcher,R.raw.family_father));
-        words.add(new Word("Miwok3","English3",R.mipmap.ic_launcher,R.raw.family_grandfather));
-        words.add(new Word("Miwok4","English4",R.mipmap.ic_launcher,R.raw.family_grandmother));
-        words.add(new Word("Miwok5","English5",R.mipmap.ic_launcher,R.raw.family_mother));
-        words.add(new Word("Miwok6","English6",R.mipmap.ic_launcher,R.raw.family_older_brother));
-        words.add(new Word("Miwok7","English7",R.mipmap.ic_launcher,R.raw.family_older_sister));
-        words.add(new Word("Miwok8","English8",R.mipmap.ic_launcher,R.raw.family_son));
-        words.add(new Word("Miwok9","English9",R.mipmap.ic_launcher,R.raw.family_younger_brother));
+        words.add(new Word(getString(R.string.miwok_family_daughter),getString(R.string.family_daughter),
+                R.drawable.family_daughter,R.raw.family_daughter));
+        words.add(new Word(getString(R.string.miwok_family_father),getString(R.string.family_father),
+                R.drawable.family_father,R.raw.family_father));
+        words.add(new Word(getString(R.string.miwok_family_grandfather),getString(R.string.family_grandfather),
+                R.drawable.family_grandfather,R.raw.family_grandfather));
+        words.add(new Word(getString(R.string.miwok_family_grandmother),getString(R.string.family_grandmother),
+                R.drawable.family_grandmother,R.raw.family_grandmother));
+        words.add(new Word(getString(R.string.family_mother),getString(R.string.miwok_family_mother),
+                R.drawable.family_mother,R.raw.family_mother));
+        words.add(new Word(getString(R.string.miwok_family_older_brother),getString(R.string.family_older_brother),
+                R.drawable.family_older_brother,R.raw.family_older_brother));
+        words.add(new Word(getString(R.string.miwok_family_older_sister),getString(R.string.family_older_sister),
+                R.drawable.family_older_sister,R.raw.family_older_sister));
+        words.add(new Word(getString(R.string.miwok_family_son),getString(R.string.family_son),
+                R.drawable.family_son,R.raw.family_son));
+        words.add(new Word(getString(R.string.miwok_family_younger_brother),getString(R.string.family_younger_brother),
+                R.drawable.family_younger_brother,R.raw.family_younger_brother));
 
         WordAdapter wordAdapter=new WordAdapter(this,0,words);
 

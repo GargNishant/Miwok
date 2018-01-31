@@ -19,15 +19,25 @@ public class ColorsActivity extends Activity {
         ListView ParentView=(ListView)findViewById(R.id.list);
 
         final ArrayList<Word> words=new ArrayList<Word>();
-        words.add(new Word("Miwok1","English1",R.mipmap.ic_launcher,R.raw.color_black));
-        words.add(new Word("Miwok2","English2",R.mipmap.ic_launcher,R.raw.color_brown));
-        words.add(new Word("Miwok3","English3",R.mipmap.ic_launcher,R.raw.color_dusty_yellow));
-        words.add(new Word("Miwok4","English4",R.mipmap.ic_launcher,R.raw.color_gray));
-        words.add(new Word("Miwok5","English5",R.mipmap.ic_launcher,R.raw.color_green));
-        words.add(new Word("Miwok6","English6",R.mipmap.ic_launcher,R.raw.color_mustard_yellow));
-        words.add(new Word("Miwok7","English7",R.mipmap.ic_launcher,R.raw.color_red));
-        words.add(new Word("Miwok8","English8",R.mipmap.ic_launcher,R.raw.color_white));
-        words.add(new Word("Miwok9","English9",R.mipmap.ic_launcher,R.raw.color_black));
+        words.add(new Word(getString(R.string.miwok_color_black),getString(R.string.color_black),
+                R.drawable.color_black,R.raw.color_black));
+        words.add(new Word(getString(R.string.miwok_color_brown),getString(R.string.color_brown),
+                R.drawable.color_brown,R.raw.color_brown));
+        words.add(new Word(getString(R.string.miwok_color_dusty_yellow),getString(R.string.color_dusty_yellow),
+                R.drawable.color_dusty_yellow,R.raw.color_dusty_yellow));
+        words.add(new Word(getString(R.string.miwok_color_gray),getString(R.string.color_gray),
+                R.drawable.color_gray,R.raw.color_gray));
+        words.add(new Word(getString(R.string.miwok_color_green),getString(R.string.color_green),
+                R.drawable.color_green,R.raw.color_green));
+        words.add(new Word(getString(R.string.miwok_color_mustard_yellow),getString(R.string.color_mustard_yellow),
+                R.drawable.color_mustard_yellow,R.raw.color_mustard_yellow));
+        words.add(new Word(getString(R.string.miwok_color_red),getString(R.string.color_red),
+                R.drawable.color_red,R.raw.color_red));
+        words.add(new Word(getString(R.string.miwok_color_white),getString(R.string.color_white),
+                R.drawable.color_white,R.raw.color_white));
+        words.add(new Word(getString(R.string.miwok_color_black),getString(R.string.color_black),
+                R.drawable.color_black,R.raw.color_black));
+
         WordAdapter wordAdapter=new WordAdapter(this,0,words);
         ParentView.setAdapter(wordAdapter);
 
