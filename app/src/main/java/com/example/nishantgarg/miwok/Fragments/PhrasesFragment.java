@@ -1,21 +1,40 @@
-package com.example.nishantgarg.miwok;
+package com.example.nishantgarg.miwok.Fragments;
 
-import android.app.Activity;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.nishantgarg.miwok.Helper.Word;
+import com.example.nishantgarg.miwok.Helper.WordAdapter;
+import com.example.nishantgarg.miwok.R;
 
 import java.util.ArrayList;
 
-public class PhrasesActivity extends Activity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class PhrasesFragment extends Fragment {
     MediaPlayer mediaPlayer;
+
+    public PhrasesFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
-        ListView ParentView=(ListView)findViewById(R.id.list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.activity_category,container,false);
+
+
+        ListView ParentView=(ListView)rootView.findViewById(R.id.list);
 
         final ArrayList<Word> words=new ArrayList<Word>();
         words.add(new Word(getString(R.string.miwok_phrase_are_you_coming),getString(R.string.phrase_are_you_coming),
@@ -37,7 +56,7 @@ public class PhrasesActivity extends Activity {
         words.add(new Word(getString(R.string.miwok_phrase_where_are_you_going),getString(R.string.phrase_where_are_you_going),
                 R.raw.phrase_where_are_you_going));
 
-        WordAdapter wordAdapter=new WordAdapter(this,0,words);
+        WordAdapter wordAdapter=new WordAdapter(getActivity(),0,words);
 
         ParentView.setAdapter(wordAdapter);
         final MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
@@ -50,7 +69,6 @@ public class PhrasesActivity extends Activity {
                 }
             }
         };
-
         ParentView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -59,10 +77,20 @@ public class PhrasesActivity extends Activity {
                     mediaPlayer.release();
                     mediaPlayer=null;
                 }
-                mediaPlayer= MediaPlayer.create(PhrasesActivity.this,word.getAudioID());
+                mediaPlayer= MediaPlayer.create(getActivity(),word.getAudioID());
                 mediaPlayer.start();
                 mediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+        return rootView;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(mediaPlayer!=null){
+            mediaPlayer.release();
+            mediaPlayer=null;
+        }
     }
 }

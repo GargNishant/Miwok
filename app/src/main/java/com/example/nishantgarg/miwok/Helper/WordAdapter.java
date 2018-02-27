@@ -1,13 +1,14 @@
-package com.example.nishantgarg.miwok;
+package com.example.nishantgarg.miwok.Helper;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.nishantgarg.miwok.R;
 
 import java.util.List;
 

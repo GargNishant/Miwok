@@ -1,24 +1,35 @@
-package com.example.nishantgarg.miwok;
+package com.example.nishantgarg.miwok.Fragments;
 
-import android.app.Activity;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+import com.example.nishantgarg.miwok.Helper.Word;
+import com.example.nishantgarg.miwok.Helper.WordAdapter;
+import com.example.nishantgarg.miwok.R;
 
 import java.util.ArrayList;
 
-public class NumbersActivity extends Activity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class NumbersFragment extends Fragment {
     MediaPlayer mediaPlayer;
-
+    public NumbersFragment() {
+        // Required empty public constructor
+    }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
-        ListView ParentView=(ListView)findViewById(R.id.list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.activity_numbers,container,false);
+
+        ListView ParentView=(ListView)rootView.findViewById(R.id.list);
 
         final ArrayList<Word> words=new ArrayList<Word>();
 
@@ -44,7 +55,7 @@ public class NumbersActivity extends Activity {
                 R.drawable.number_ten,R.raw.number_ten));
 
 
-        WordAdapter wordAdapter=new WordAdapter(this,0,words);
+        WordAdapter wordAdapter=new WordAdapter(getActivity(),0,words);
         ParentView.setAdapter(wordAdapter);
         final MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
             @Override
@@ -64,10 +75,21 @@ public class NumbersActivity extends Activity {
                     mediaPlayer.release();
                     mediaPlayer=null;
                 }
-                mediaPlayer= MediaPlayer.create(NumbersActivity.this,word.getAudioID());
+                mediaPlayer= MediaPlayer.create(getActivity(),word.getAudioID());
                 mediaPlayer.start();
                 mediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+        return rootView;
     }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(mediaPlayer!=null){
+            mediaPlayer.release();
+            mediaPlayer=null;
+        }
+    }
+
 }

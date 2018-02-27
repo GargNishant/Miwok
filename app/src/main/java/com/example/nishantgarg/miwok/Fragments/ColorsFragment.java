@@ -1,22 +1,39 @@
-package com.example.nishantgarg.miwok;
+package com.example.nishantgarg.miwok.Fragments;
 
-import android.app.Activity;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import com.example.nishantgarg.miwok.Helper.Word;
+import com.example.nishantgarg.miwok.Helper.WordAdapter;
+import com.example.nishantgarg.miwok.R;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends Activity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ColorsFragment extends Fragment {
     MediaPlayer mediaPlayer;
 
+
+
+    public ColorsFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
-        ListView ParentView=(ListView)findViewById(R.id.list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.activity_category, container,false);
+
+        ListView ParentView=(ListView)rootView.findViewById(R.id.list);
 
         final ArrayList<Word> words=new ArrayList<Word>();
         words.add(new Word(getString(R.string.miwok_color_black),getString(R.string.color_black),
@@ -38,7 +55,7 @@ public class ColorsActivity extends Activity {
         words.add(new Word(getString(R.string.miwok_color_black),getString(R.string.color_black),
                 R.drawable.color_black,R.raw.color_black));
 
-        WordAdapter wordAdapter=new WordAdapter(this,0,words);
+        WordAdapter wordAdapter=new WordAdapter(getActivity(),0,words);
         ParentView.setAdapter(wordAdapter);
 
         final MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
@@ -60,10 +77,18 @@ public class ColorsActivity extends Activity {
                     mediaPlayer.release();
                     mediaPlayer=null;
                 }
-                mediaPlayer= MediaPlayer.create(ColorsActivity.this,word.getAudioID());
+                mediaPlayer= MediaPlayer.create(getActivity(),word.getAudioID());
                 mediaPlayer.start();
                 mediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+
+
+        return rootView;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 }

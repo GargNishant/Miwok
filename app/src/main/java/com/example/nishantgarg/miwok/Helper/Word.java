@@ -1,4 +1,4 @@
-package com.example.nishantgarg.miwok;
+package com.example.nishantgarg.miwok.Helper;
 
 public class Word {
     private String mMiwokTranslation;
@@ -14,7 +14,7 @@ public class Word {
         AudioID=audioID;
     }
 
-    Word(String miwok, String english, int Image, int audioID){
+    public Word(String miwok, String english, int Image, int audioID){
         mMiwokTranslation=miwok;
         mEnglishTranslation=english;
         mImageViewID=Image;

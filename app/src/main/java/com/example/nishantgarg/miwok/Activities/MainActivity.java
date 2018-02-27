@@ -1,10 +1,12 @@
-package com.example.nishantgarg.miwok;
+package com.example.nishantgarg.miwok.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.nishantgarg.miwok.R;
 
 public class MainActivity extends Activity {
 TextView numbersID,phrasesID,familyID,colorsID;
