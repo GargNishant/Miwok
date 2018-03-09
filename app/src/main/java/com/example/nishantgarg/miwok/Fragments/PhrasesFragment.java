@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.nishantgarg.miwok.Helper.Word;
 import com.example.nishantgarg.miwok.Helper.WordAdapter;
@@ -31,7 +30,7 @@ public class PhrasesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_category,container,false);
+        View rootView = inflater.inflate(R.layout.activity_for_fragments,container,false);
 
 
         ListView ParentView=(ListView)rootView.findViewById(R.id.list);
