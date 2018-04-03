@@ -11,5 +11,6 @@ This application has 4 categories of words:
 By categorising the words it makes it easier for the user to view them. When user clicks on any one the entry in the app under 
 each category, pronounciation audio file is also played. This helps the most keen users to even practice the language properly. 
 
-Master Branch: Simple App using Basic Technologies
-Fragments-V1 Branch: Upgraded the app so that it can use The View Pager, Fragments, Tabs instead of Multiple Activities.
+Master Branch:          Simple App using Basic Technologies
+
+Fragments-V1 Branch:    Upgraded the app so that it can use The View Pager, Fragments, Tabs instead of Multiple Activities.
