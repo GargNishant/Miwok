@@ -50,7 +50,7 @@ A step by step series of examples that tell you have to get a development env ru
 
 Latest Version: 2
 ## Authors
-
+* **Udacity Nanodegree Program**
 * **Nishant Garg**  - [Nishant Garg](https://github.com/GargNishant)
 
 ## Master Branch:          
