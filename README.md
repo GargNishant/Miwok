@@ -34,9 +34,9 @@ Latest Version: 2
 
 * **Nishant Garg**  - [Nishant Garg](https://github.com/GargNishant)
 
-## Master Branch:          
+### Master Branch:          
 Simple App using Basic Technologies
 
-## Fragments-V1 Branch:    
+### Fragments-V1 Branch:    
 Upgraded the app so that it can use The View Pager, Fragments, Tabs instead of Multiple Activities.
 
